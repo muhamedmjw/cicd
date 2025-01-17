@@ -10,7 +10,7 @@ var ErrNoAuthHeaderIncluded = errors.New("no authorization header included")
 
 // GetAPIKey extracts the API key from the Authorization header.
 func GetAPIKey(headers http.Header) (string, error) {
-	authHeader := headers.Get("")
+	authHeader := headers.Get("Authorization")
 	if authHeader == "" {
 		return "", ErrNoAuthHeaderIncluded
 	}
